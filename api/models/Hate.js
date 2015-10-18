@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var HateSchema = mongoose.schema({
+var HateSchema = mongoose.Schema({
 	title: String,
 	image: String,
 	video: String,

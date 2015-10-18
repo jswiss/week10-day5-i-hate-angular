@@ -31,6 +31,7 @@ function getHate(request, response) {
   }).select('-__v');
 }
 
+
 module.exports = {
   getAll: getAll,
   createHate: createHate,

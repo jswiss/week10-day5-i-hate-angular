@@ -3,6 +3,7 @@ var seeder = require('mongoose-seed');
 // Connect to MongoDB via Mongoose 
 seeder.connect('mongodb://localhost:27017/hate-angular', function() {
   // Load Mongoose models 
+  console.log('data?')
   seeder.loadModels(['./models/Hate.js']);
   // Clear specified collections 
   seeder.clearModels(['Hate'], function() {
@@ -12,7 +13,7 @@ seeder.connect('mongodb://localhost:27017/hate-angular', function() {
 });
 
 
-var date = [
+var data = [
 	{
 		'model': 'Hate',
 		'documents': [
@@ -72,4 +73,4 @@ var date = [
 			}
 		]
 	}
-]
+];
