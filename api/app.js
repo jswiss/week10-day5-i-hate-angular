@@ -19,6 +19,6 @@ app.use(morgan('dev'));
 
 var routes = require('./config/routes');
 
-server.listen(port, function() {
+app.listen(port, function() {
 	console.log('server started');
 });

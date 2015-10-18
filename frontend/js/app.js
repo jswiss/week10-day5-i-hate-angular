@@ -6,12 +6,12 @@ angular
 function videoRouter($stateProvider, $urlRouterProvider) {
 	$stateProvider
 	.state('hate', {
-		url: '/hate',
+		url: '/',
 		templateUrl: 'hate.html'
 	})
 
 	.state('hate.show', {
-		url: '/hate/:id',
+		url: '/:id',
 		templateUrl: 'hate.show.html'
 	})
 
@@ -19,5 +19,4 @@ function videoRouter($stateProvider, $urlRouterProvider) {
 		url: '/new',
 		templateUrl: 'new.html'
 	});
-	};
-}
+};
