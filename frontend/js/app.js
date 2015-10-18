@@ -1,9 +1,7 @@
 angular
-	.module('hateAngular', ['ui.router'])
-	.config(videoRouter);
-
-
-function videoRouter($stateProvider, $urlRouterProvider) {
+	.module('hateAngular', ['ngResource', 'ui.router'])
+	.config(function($stateProvider, $urlRouterProvider) {
+	$urlRouterProvider.otherwise('/');
 	$stateProvider
 	.state('hate', {
 		url: '/',
@@ -11,12 +9,38 @@ function videoRouter($stateProvider, $urlRouterProvider) {
 	})
 
 	.state('hate.show', {
-		url: '/:id',
+		url: '/hate/:id',
 		templateUrl: 'hate.show.html'
 	})
 
 	.state('new', {
-		url: '/new',
+		url: '/hate/new',
 		templateUrl: 'new.html'
 	});
-};
+})
+
+	.service('HateService', function () {
+		return $resource('http://localhost:3000/hate/:id', {
+		 id: '@_id' 
+		});
+		var self = this;
+
+		var Hate = $resource('http://localhost:3000/hate/:id', { id: '@_id' });
+
+		self.hates = Hate.query();
+
+	  this.selectHate = function(hate, index) {
+		  self.activeHateIndex = index;
+		  self.selectedHate = Hate.get({ id: character._id });
+	  };
+
+		this.newHate = {};
+
+		this.saveHate = function() {
+			Hate.save(self.newHate, function(hate) {
+				self.hates.push(hate);
+				self.newHate = {};
+			})
+		}
+	})
+ 

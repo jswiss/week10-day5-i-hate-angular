@@ -1,1 +1,11 @@
-New
+<main ng-controller="MainController as main">
+	<form ng-submit="hate.saveHate()">
+    <label for="hate-title">title:</label>
+    <input type="text" id="hate-name" ng-model="main.newHate.title">
+    <label for="hate-image">image:</label>
+    <input type="text" id="hate-image" ng-model="main.newHate.image">
+    <label for="hate-link">link:</label>
+    <input type="text" id="hate-link" ng-model="main.newHate.link">
+    <button>Add Angular Hate</button>
+  </form>
+</main>  
